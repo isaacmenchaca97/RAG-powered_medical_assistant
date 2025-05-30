@@ -17,6 +17,10 @@ classifiers = [
 ]
 dependencies = [
     "awscli",
+    "requests",
+    "dotenv",
+    "bs4",
+    "openai",
     "ipython",
     "jupyterlab",
     "matplotlib",
@@ -28,6 +32,14 @@ dependencies = [
     "python-dotenv",
     "ruff",
     "scikit-learn",
+    "transformers",
+    "langchain-text-splitters",
+    "langchain-community",
+    "langgraph",
+    "langchain_aws",
+    "faiss-cpu",
+    "ipykernel",
+    "tensorflow",
 ]
 requires-python = "~=3.12.0"
 
