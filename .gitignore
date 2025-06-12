@@ -1,6 +1,12 @@
 # Data
 /data/
 
+# Terraform
+.terraform.lock.hcl
+terraform/.terraform
+terraform.tfstate*
+terraform/variables.tf
+
 # Mac OS-specific storage files
 .DS_Store
 
