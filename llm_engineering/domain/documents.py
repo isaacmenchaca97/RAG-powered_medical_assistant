@@ -7,12 +7,12 @@ from .base import NoSQLBaseDocument
 from .types import DataCategory
 
 
-class UserDocument(NoSQLBaseDocument):
+class PatientDocument(NoSQLBaseDocument):
     first_name: str
     last_name: str
 
     class Settings:
-        name = "users"
+        name = "user"
 
     @property
     def full_name(self):
