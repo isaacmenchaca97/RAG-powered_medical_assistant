@@ -1,61 +1,54 @@
-# RAG-powered_meidcal_assistant
+# 🩺 RAG-Powered Medical Assistant
 
-<a target="_blank" href="https://cookiecutter-data-science.drivendata.org/">
-    <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
-</a>
+📍 Objective
 
-A short description of the project.
+Develop a Retrieval-Augmented Generation (RAG) system that assists healthcare professionals by providing accurate, real-time information from medical literature and internal protocols. The assistant aims to enhance clinical decision-making by retrieving relevant documents and generating concise, context-aware responses.
 
-## Project Organization
+🧠 Features
 
+- Colect data from PubMed, NIH guidlines, internal hospital protocols
+- Fine-tune an open-source LLM using the collected data to give the model an understanding of internal protocols or proprietary clinical knowledge
+- Populate a vector database (DB) using our digital data for RAG
+- Have a simple web interface to interact with the LLM and be able to do the following:
+    - Upload patient data (PDF)
+    - Manage different chats
+- Implement HIPAA (Health Insurance Portability and Accountability Act) compliance
+
+🔧 System Architecture Overview
+- Data Collection Pipeline
+    Goal: Collect and store unstructured healthcare data.
+- Feature Pipeline
+    Goal: Convert raw documents to vector embeddings, store in a retrievable format and instruct dataset for fine-tuning.
+- Training Pipeline
+    Goal: Fine-tune a domain-specific LLM to give the model an understanding of internal protocols or proprietary clinical knowledge.
+- Inference Pipeline
+    Goal: Serve responses grounded in retrieved documents using RAG.
+
+
+🗂️ Project Structure
 ```
-├── LICENSE            <- Open-source license if one is chosen
-├── Makefile           <- Makefile with convenience commands like `make data` or `make train`
-├── README.md          <- The top-level README for developers using this project.
-├── data
-│   ├── external       <- Data from third party sources.
-│   ├── interim        <- Intermediate data that has been transformed.
-│   ├── processed      <- The final, canonical data sets for modeling.
-│   └── raw            <- The original, immutable data dump.
-│
-├── docs               <- A default mkdocs project; see www.mkdocs.org for details
-│
-├── models             <- Trained and serialized models, model predictions, or model summaries
-│
-├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-│                         the creator's initials, and a short `-` delimited description, e.g.
-│                         `1.0-jqp-initial-data-exploration`.
-│
-├── pyproject.toml     <- Project configuration file with package metadata for 
-│                         src and configuration for tools like black
-│
-├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-│
-├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-│   └── figures        <- Generated graphics and figures to be used in reporting
-│
-├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-│                         generated with `pip freeze > requirements.txt`
-│
-├── setup.cfg          <- Configuration file for flake8
-│
-└── src   <- Source code for use in this project.
-    │
-    ├── __init__.py             <- Makes src a Python module
-    │
-    ├── config.py               <- Store useful variables and configuration
-    │
-    ├── dataset.py              <- Scripts to download or generate data
-    │
-    ├── features.py             <- Code to create features for modeling
-    │
-    ├── modeling                
-    │   ├── __init__.py 
-    │   ├── predict.py          <- Code to run model inference with trained models          
-    │   └── train.py            <- Code to train models
-    │
-    └── plots.py                <- Code to create visualizations
+rag-powered-medical-assistant/
+├── configs/             # Pipeline configuration files
+├── llm_engineering/     # Core project package
+│   ├── application/    
+│   ├── domain/         
+│   ├── infrastructure/ 
+│   ├── model/         
+├── notebooks/
+├── pipelines/           # ML pipeline definitions
+├── steps/               # Pipeline components
+├── terraform/           # Terraform for S3, Bedrock, OpenSearch, etc.
+├── tests/               # Test examples
+├── tools/               # Utility scripts
+│   ├── run.py
+│   ├── ml_service.py
+│   ├── rag.py
+│   ├── data_warehouse.py
 ```
 
---------
+🧰 Tools 
 
+- Python: Poetry (dependency and virtual environment management), Poe the Poet (task execution tool).
+- MLOps and LLMOps tooling: MLFlow (experiment tracker and model registry), ZenML (orchestrator, artifacts, and metadata), Langfuse (prompt monitoring).
+- Databases: Amazon DocumentDB (NoSQL database), Amazon OpenSearch Service (vector store).
+- Cloud: S3 (object storage), ECR (container registry), and SageMaker (compute for training and inference), FastAPI + ECS Fargate (deployment), Streamlit (UI).
