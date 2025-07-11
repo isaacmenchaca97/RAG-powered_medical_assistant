@@ -47,3 +47,10 @@ class ArticleDocument(Document):
 
     class Settings:
         name = DataCategory.ARTICLES
+
+
+class PDFDocument(Document):
+    link: str
+
+    class Settings:
+        name = DataCategory.PDF
