@@ -7,7 +7,7 @@ from .base import NoSQLBaseDocument
 from .types import DataCategory
 
 
-class PatientDocument(NoSQLBaseDocument):
+class UserDocument(NoSQLBaseDocument):
     first_name: str
     last_name: str
 

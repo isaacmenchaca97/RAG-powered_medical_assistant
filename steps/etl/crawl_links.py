@@ -6,12 +6,12 @@ from typing_extensions import Annotated
 from zenml import get_step_context, step
 
 from llm_engineering.application.crawlers.dispatcher import CrawlerDispatcher
-from llm_engineering.domain.documents import PatientDocument
+from llm_engineering.domain.documents import UserDocument
 
 
 @step
 def crawl_links(
-    user: PatientDocument, links: list[str]
+    user: UserDocument, links: list[str]
 ) -> Annotated[list[str], "crawled_links"]:
     dispatcher = CrawlerDispatcher.build().register_medium()
 
@@ -34,7 +34,7 @@ def crawl_links(
 
 
 def _crawl_link(
-    dispatcher: CrawlerDispatcher, link: str, user: PatientDocument
+    dispatcher: CrawlerDispatcher, link: str, user: UserDocument
 ) -> tuple[bool, str]:
     crawler = dispatcher.get_crawler(link)
     crawler_domain = urlparse(link).netloc
