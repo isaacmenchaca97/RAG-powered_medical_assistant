@@ -54,10 +54,3 @@ class PDFDocument(Document):
 
     class Settings:
         name = DataCategory.PDF
-
-
-class ClinicHistoryDocument(Document):
-    link: str
-
-    class Settings:
-        name = DataCategory.CLINIC_HISTORY
