@@ -13,7 +13,7 @@ from llm_engineering.domain.documents import UserDocument
 def crawl_links(
     user: UserDocument, links: list[str]
 ) -> Annotated[list[str], "crawled_links"]:
-    dispatcher = CrawlerDispatcher.build().register_medium()
+    dispatcher = CrawlerDispatcher.build().register_pdf()
 
     logger.info(f"Starting to crawl {len(links)} link(s).")
 
