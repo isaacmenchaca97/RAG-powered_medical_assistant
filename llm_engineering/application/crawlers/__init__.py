@@ -1,4 +1,4 @@
 from .dispatcher import CrawlerDispatcher
-from .medium import MediumCrawler
+from .pdf import PDFCrawler
 
-__all__ = ["CrawlerDispatcher", "MediumCrawler"]
+__all__ = ["CrawlerDispatcher", "PDFCrawler"]

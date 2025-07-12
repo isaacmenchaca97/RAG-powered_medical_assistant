@@ -5,7 +5,6 @@ from loguru import logger
 
 from .base import BaseCrawler
 from .custom_article import CustomArticleCrawler
-from .medium import MediumCrawler
 from .pdf import PDFCrawler
 
 
@@ -18,11 +17,6 @@ class CrawlerDispatcher:
         dispatcher = cls()
 
         return dispatcher
-
-    def register_medium(self) -> "CrawlerDispatcher":
-        self.register("https://medium.com", MediumCrawler)
-
-        return self
 
     def register_pdf(self) -> "CrawlerDispatcher":
         self.register("https://amazonaws.com", PDFCrawler)
