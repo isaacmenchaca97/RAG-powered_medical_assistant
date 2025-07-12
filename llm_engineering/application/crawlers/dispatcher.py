@@ -6,6 +6,7 @@ from loguru import logger
 from .base import BaseCrawler
 from .custom_article import CustomArticleCrawler
 from .medium import MediumCrawler
+from .pdf import PDFCrawler
 
 
 class CrawlerDispatcher:
@@ -23,11 +24,20 @@ class CrawlerDispatcher:
 
         return self
 
+    def register_pdf(self) -> "CrawlerDispatcher":
+        self.register("https://amazonaws.com", PDFCrawler)
+
+        return self
+
     def register(self, domain: str, crawler: type[BaseCrawler]) -> None:
         parsed_domain = urlparse(domain)
         domain = parsed_domain.netloc
 
-        self._crawlers[r"https://(www\.)?{}/*".format(re.escape(domain))] = crawler
+        self._crawlers[
+            r"https://((www\.)|(([a-zA-Z0-9.-]+)\.s3\.[a-zA-Z0-9-]+\.))?{}/*".format(
+                re.escape(domain)
+            )
+        ] = crawler
 
     def get_crawler(self, url: str) -> BaseCrawler:
         for pattern, crawler in self._crawlers.items():
