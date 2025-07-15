@@ -19,3 +19,10 @@ parameters:
     - https://test-rag-assistant.s3.us-east-1.amazonaws.com/Sepsis_Protocol.pdf
     - https://test-rag-assistant.s3.us-east-1.amazonaws.com/Surgical_Safety_Checklist.pdf
     # PubMed Articles
+    - https://pubmed.ncbi.nlm.nih.gov/2179645/
+    - https://pubmed.ncbi.nlm.nih.gov/34690044/
+    - https://pubmed.ncbi.nlm.nih.gov/1449097/
+    - https://pubmed.ncbi.nlm.nih.gov/9228383/
+    - https://pubmed.ncbi.nlm.nih.gov/33503227/
+    - https://pubmed.ncbi.nlm.nih.gov/29380817/
+    # Medline

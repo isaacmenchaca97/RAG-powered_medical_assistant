@@ -6,6 +6,7 @@ from loguru import logger
 from .base import BaseCrawler
 from .custom_article import CustomArticleCrawler
 from .pdf import PDFCrawler
+from .pubmed import PubMedCrawler
 
 
 class CrawlerDispatcher:
@@ -20,6 +21,11 @@ class CrawlerDispatcher:
 
     def register_pdf(self) -> "CrawlerDispatcher":
         self.register("https://amazonaws.com", PDFCrawler)
+
+        return self
+
+    def register_pubmed(self) -> "CrawlerDispatcher":
+        self.register("https://pubmed.ncbi.nlm.nih.gov", PubMedCrawler)
 
         return self
 
