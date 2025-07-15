@@ -26,6 +26,8 @@ class Settings(BaseSettings):
     # MongoDB database
     DATABASE_HOST: str = "mongodb://llm_engineering:llm_engineering@127.0.0.1:27017"
     DATABASE_NAME: str = "rag-medical-assistant"
+    MONGO_INITDB_ROOT_USERNAME: str | None = None
+    MONGO_INITDB_ROOT_PASSWORD: str | None = None
 
     # Qdrant vector database
     USE_QDRANT_CLOUD: bool = False

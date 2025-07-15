@@ -10,5 +10,12 @@ parameters:
   links:
     # S3 documents (Hospital docs)
     - https://test-rag-assistant.s3.us-east-1.amazonaws.com/PatientClinicalHistory.pdf
+    - https://test-rag-assistant.s3.us-east-1.amazonaws.com/Admission_and_Discharge_Protocol.pdf
+    - https://test-rag-assistant.s3.us-east-1.amazonaws.com/Code_Blue_Protocol.pdf
+    - https://test-rag-assistant.s3.us-east-1.amazonaws.com/Documentation_Protocol.pdf
+    - https://test-rag-assistant.s3.us-east-1.amazonaws.com/Fall_Prevention_Protocol.pdf
+    - https://test-rag-assistant.s3.us-east-1.amazonaws.com/HIPAA_Compliance_Protocol.pdf
+    - https://test-rag-assistant.s3.us-east-1.amazonaws.com/Pain_Management_Protocol.pdf
+    - https://test-rag-assistant.s3.us-east-1.amazonaws.com/Sepsis_Protocol.pdf
+    - https://test-rag-assistant.s3.us-east-1.amazonaws.com/Surgical_Safety_Checklist.pdf
     # PubMed Articles
-    - 
