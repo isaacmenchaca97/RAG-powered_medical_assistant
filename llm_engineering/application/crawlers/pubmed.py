@@ -46,10 +46,6 @@ class PubMedCrawler(BaseCrawler):
         journal = article.findtext("Journal/Title") if article is not None else None
         language = article.findtext("Language") if article is not None else None
 
-        # De-identify abstract text
-        # if abstract:
-        #     abstract = deidentify_text(abstract)
-
         content = {
             "Title": title,
             "Journal": journal,
