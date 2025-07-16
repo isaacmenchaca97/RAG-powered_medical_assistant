@@ -7,6 +7,7 @@ from .base import BaseCrawler
 from .custom_article import CustomArticleCrawler
 from .pdf import PDFCrawler
 from .pubmed import PubMedCrawler
+from .pmc import PmcCrawler
 
 
 class CrawlerDispatcher:
@@ -26,6 +27,11 @@ class CrawlerDispatcher:
 
     def register_pubmed(self) -> "CrawlerDispatcher":
         self.register("https://pubmed.ncbi.nlm.nih.gov", PubMedCrawler)
+
+        return self
+
+    def register_pmc(self) -> "CrawlerDispatcher":
+        self.register("https://pmc.ncbi.nlm.nih.gov", PmcCrawler)
 
         return self
 
