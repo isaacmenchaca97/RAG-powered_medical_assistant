@@ -18,9 +18,9 @@ from pipelines import (
 
 @click.command(
     help="""
-LLM Engineering project CLI v0.0.1. 
+LLM Engineering project CLI v0.0.1.
 
-Main entry point for the pipeline execution. 
+Main entry point for the pipeline execution.
 This entrypoint is where everything comes together.
 
 Run the ZenML LLM Engineering project pipelines with various options.
