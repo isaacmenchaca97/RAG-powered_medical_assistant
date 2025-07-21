@@ -10,7 +10,7 @@ from pipelines import (
     # end_to_end_data,
     # evaluating,
     # export_artifact_to_json,
-    # feature_engineering,
+    feature_engineering,
     # generate_datasets,
     # training,
 )
@@ -34,11 +34,11 @@ Examples:
   \b
   # Run the pipeline with default options
   python run.py
-               
+
   \b
   # Run the pipeline without cache
   python run.py --no-cache
-  
+
   \b
   # Run only the ETL pipeline
   python run.py --only-etl
@@ -74,12 +74,12 @@ Examples:
     default="digital_data_etl_paul_iusztin.yaml",
     help="Filename of the ETL config file.",
 )
-# @click.option(
-#     "--run-feature-engineering",
-#     is_flag=True,
-#     default=False,
-#     help="Whether to run the FE pipeline.",
-# )
+@click.option(
+    "--run-feature-engineering",
+    is_flag=True,
+    default=False,
+    help="Whether to run the FE pipeline.",
+)
 # @click.option(
 #     "--run-generate-instruct-datasets",
 #     is_flag=True,
@@ -116,7 +116,7 @@ def main(
     run_etl: bool = False,
     etl_config_filename: str = "digital_data_etl_paul_iusztin.yaml",
     # run_export_artifact_to_json: bool = False,
-    # run_feature_engineering: bool = False,
+    run_feature_engineering: bool = False,
     # run_generate_instruct_datasets: bool = False,
     # run_generate_preference_datasets: bool = False,
     # run_training: bool = False,
@@ -127,7 +127,7 @@ def main(
         run_etl
         # or run_end_to_end_data
         # or run_export_artifact_to_json
-        # or run_feature_engineering
+        or run_feature_engineering
         # or run_generate_instruct_datasets
         # or run_generate_preference_datasets
         # or run_training
@@ -169,11 +169,13 @@ def main(
     #     pipeline_args["run_name"] = f"export_artifact_to_json_run_{dt.now().strftime('%Y_%m_%d_%H_%M_%S')}"
     #     export_artifact_to_json.with_options(**pipeline_args)(**run_args_etl)
 
-    # if run_feature_engineering:
-    #     run_args_fe = {}
-    #     pipeline_args["config_path"] = root_dir / "configs" / "feature_engineering.yaml"
-    #     pipeline_args["run_name"] = f"feature_engineering_run_{dt.now().strftime('%Y_%m_%d_%H_%M_%S')}"
-    #     feature_engineering.with_options(**pipeline_args)(**run_args_fe)
+    if run_feature_engineering:
+        run_args_fe = {}
+        pipeline_args["config_path"] = root_dir / "configs" / "feature_engineering.yaml"
+        pipeline_args["run_name"] = (
+            f"feature_engineering_run_{dt.now().strftime('%Y_%m_%d_%H_%M_%S')}"
+        )
+        feature_engineering.with_options(**pipeline_args)(**run_args_fe)
 
     # if run_generate_instruct_datasets:
     #     run_args_cd = {}
