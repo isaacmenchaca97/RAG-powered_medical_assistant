@@ -2,7 +2,7 @@ from . import (
     etl,
     # evaluating,
     # export,
-    # feature_engineering,
+    feature_engineering,
     # generate_datasets,
     # training,
 )
