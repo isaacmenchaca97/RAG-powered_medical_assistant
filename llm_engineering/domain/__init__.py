@@ -1,7 +1,7 @@
 from . import (
     base,
     # chunks,
-    # cleaned_documents,
+    cleaned_documents,
     # dataset,
     documents,
     # embedded_chunks,
