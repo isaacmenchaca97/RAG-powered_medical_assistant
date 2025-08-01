@@ -33,7 +33,7 @@ class PdfCleaningHandler(CleaningDataHandler):
     def clean(self, data_model: PDFDocument) -> CleanedPdfDocument:
         valid_content = [content for content in data_model.content.values() if content]
 
-        return CleanedArticleDocument(
+        return CleanedPdfDocument(
             id=data_model.id,
             content=clean_text(" #### ".join(valid_content)),
             platform=data_model.platform,

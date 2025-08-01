@@ -4,7 +4,7 @@ from . import (
     cleaned_documents,
     # dataset,
     documents,
-    # embedded_chunks,
+    embedded_chunks,
     exceptions,
     # inference,
     # prompt,
