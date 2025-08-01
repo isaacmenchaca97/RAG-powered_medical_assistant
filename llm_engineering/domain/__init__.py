@@ -1,6 +1,6 @@
 from . import (
     base,
-    # chunks,
+    chunks,
     cleaned_documents,
     # dataset,
     documents,

@@ -1,5 +1,5 @@
 from .dispatchers import (
-    # ChunkingDispatcher,
+    ChunkingDispatcher,
     CleaningDispatcher,
     # EmbeddingDispatcher
 )
